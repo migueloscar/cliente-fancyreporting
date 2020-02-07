@@ -1,0 +1,86 @@
+<div class="content">
+  <div class="content-main">
+      <div class="col-sm-8 mx-auto">
+        <div class="row pt-3">
+          <div class="col-sm-6 icono">
+            <img src="assets/images/IconoFancyReporting.png" alt=""   height="250">
+            <h1 class=" icono-texto">FANCY REPORTING</h1>
+          </div>
+          <div  class="col-sm-6 descripcion-libreria">
+            <p>Una librería que genera reportes de indicadores en archivos de Microsoft Word para proyectos .Net Framework tanto para entornos web como de escritorio.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <hr>
+  <div class="content-home">
+    <div class="example col-md-8 mx-auto">
+      <div class="installing">
+        <h3 class="title-seccion">Instalación</h3>
+        <p>Descargar la librería y agregar al proyecto de .Net Framework.</p>
+        <img src="assets/images/agregandoReferencia.png" alt="Agregando libreria FancyReporting" class="w-100 shadow-sm p-1 mb-1 bg-white rounded">
+        <p>también se deben de agregar las librerías desde Nuget: </p>
+        <ul>
+          <li>NewtonSoft.json - Librería para manejar objetos Json.</li>
+          <li>DocumentFormat.OpenXml - Librería para la generación de archivos Microsoft Word con Open XML.</li>
+        </ul>
+      </div>
+      <div class="implementing">
+        <h3 class="title-seccion" >Implementación</h3>
+          <h5>Preparación de Datos</h5>
+            <p>Prepararemos una clase como ejemplo que contenga los datos para el reporte.</p>
+            <pre><code [highlight]="codigoPreparandoDatos"></code></pre>
+            <p>Esta clase será utilizada en la Generación del Reporte.</p>
+          <h5>Generación del Archivo de Configuración</h5>
+          <p>
+            La librería también recibe como parámetro la configuración del reporte, 
+            donde se especifica las cadenas de textos, los formatos de los números, 
+            grupos en los que estarán divididos los datos, etc. 
+            Este archivo de configuración se puede generar en la siguiente ruta 
+            <a href="/configurationFile" target="_blank">Generación Archivo de Configuración</a>.
+          </p>
+          <p>
+            Y con la siguiente guiá <a href="/documentation">Pasos para generar el archivo de configuración</a>. 
+          </p>
+          <p>
+            Una vez generado el archivo se guarda en una ruta a la que tenga acceso la aplicación.
+          </p>
+          <img src="assets/images/guardandoArchivoConfiguracion.png" alt="Agregando libreria FancyReporting" class="w-100 shadow-sm p-1 mb-1 bg-white rounded">
+
+          <h5>Generación del Reporte</h5>
+          <p>
+            Primero agregar los dos siguientes namespace.
+          </p>
+          <pre><code [highlight]="codigoNameSpace"></code></pre>
+          <p>
+            La librería requiere como parámetros de entrada los datos del reporte y el archivo de configuración, ambos como cadenas y en formato Json. 
+            
+          </p>
+          <pre><code [highlight]="codigoGenerandoReporte"></code></pre>
+      </div>
+      <div class="result">
+        <h3 class="title-seccion">Resultados</h3>
+        <p>El reporte en formato Microsoft Word es el siguiente:</p>
+        <div class="text-center"> 
+          <img src="assets/images/archivoWordResultante.png" alt="Agregando libreria FancyReporting" class="w-100 shadow-sm p-1 mb-1 bg-white rounded word-ejemplo">
+        </div>
+        <p>
+          Los reportes constan de tres secciones: 
+        </p>
+          <ul>
+            <li>Una tabla que muestra la evolución de los indicadores.</li>
+            <li>Párrafos que describen los valores de la tabla.</li>
+            <li>Un gráfico lineal donde se aprecia la evolución de los indicadores.</li>
+          </ul>
+        <p>
+          Las secciones de los párrafos y el gráfico lineal se repiten por cada grupo de la tabla. 
+          </p>
+        <p>
+        Se puede personalizar el reporte modificando textos, columnas, indicar que datos deben de 
+          tener descripción y cuales no, de similar forma para el gráfico lineal. 
+          Para mayor información visite la <a href="/documentation">Documentación.</a> 
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

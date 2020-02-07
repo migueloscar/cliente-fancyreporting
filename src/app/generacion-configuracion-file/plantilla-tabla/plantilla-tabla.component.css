@@ -1,0 +1,43 @@
+.datDetalle{
+    text-align: left;
+    padding: 0px 5px;
+}
+    
+.datValores{
+    text-align: right;
+    padding: 0px 5px;
+}
+    
+.datResult{
+    font-weight: bold;
+    text-align: right;
+    padding: 0px 5px;
+}
+.cabTabla{
+    text-align: center;
+    font-weight: bold;
+}
+    
+.cabDetalle{
+    min-width: 150px;
+    max-width: 150px;
+    text-transform: uppercase;
+}
+.cabDatos{
+    min-width: 100px;
+    max-width: 100px;
+}
+.cabResult{
+    min-width: 120px;
+    max-width: 120px;
+}
+
+.filaGrupo{
+    text-align: left ;
+    font-weight: bold;
+    padding: 0px 5px;
+}
+
+.tblContenidoDetalle{
+    font-weight: bold;
+}

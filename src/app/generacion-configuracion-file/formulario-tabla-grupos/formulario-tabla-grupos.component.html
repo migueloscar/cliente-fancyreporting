@@ -1,0 +1,39 @@
+<div class="margenes-contenedor">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true" color="accent">
+      <mat-expansion-panel-header >
+        <mat-panel-title>
+          Edición de los grupos
+        </mat-panel-title>
+        <mat-panel-description>
+          Agregue grupos al Recuadro, arrastre los elementos al grupo que desee.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="text-right mb-1" color="primary">
+              <button mat-raised-button color="primary" (click)="openDialog()">Nuevo Grupo</button>
+      </div>
+      <div cdkDropListGroup>
+              <div class="example-container" *ngFor="let grupo of grupos" >
+                      <div
+                      cdkDropList
+                      [cdkDropListData]="grupo.registrosConfiguracion"
+                      class="list"
+                      (cdkDropListDropped)="drop($event)">
+                      <div class="box-grupo bg-info text-white">
+                              <changeValue [(cadena)]="grupo.nombre" ></changeValue>             
+                      </div>
+                      <div class="box" *ngFor="let registroConfiguracion of grupo.registrosConfiguracion" cdkDrag>
+                              <div class="d-block w-100">
+                                      <div class="col-md-6 d-inline-block">{{registroConfiguracion.detalle}}</div>
+                                      <div class="col-md-3 d-inline-block check-box"><mat-checkbox [(ngModel)]="registroConfiguracion.comentario">Comentario</mat-checkbox></div>
+                                      <div class="col-md-3 d-inline-block check-box"><mat-checkbox [(ngModel)]="registroConfiguracion.grafico">Gráfico Estadístico</mat-checkbox></div>
+                              </div>  
+                      </div>
+                      </div>
+              </div>
+      </div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="tablaDatos" border="1">
+    <caption><changeValue [(cadena)]="textos.fuente"> {{listTitulosResCol.length}}</changeValue></caption>
+    <thead>
+      <tr>
+        <th class="cabTabla cabDetalle" rowspan="2"><changeValue [(cadena)]="textos.dato"></changeValue></th>
+        <th class="cabTabla" [attr.colspan]="listPeriodos.length"><changeValue [(cadena)]="textos.tituloPeriodos"></changeValue></th>
+      
+        <th *ngIf="listTitulosResCol.length !== 1" class="cabTabla" [attr.colspan]="listTitulosResCol.length"><changeValue [(cadena)]="textos.tituloFunciones"></changeValue></th>
+        <th *ngIf="listTitulosResCol.length === 1" class="cabTabla" [attr.colspan]="listTitulosResCol.length" [attr.rowspan]="2"><changeValue [(cadena)]="textos.tituloFunciones"></changeValue></th>
+      </tr>
+      <tr *ngIf="listTitulosResCol.length !== 1">
+        <th class="cabTabla cabDatos" *ngFor="let periodo of listPeriodos">{{periodo | date:textos.formatoFecha}}</th>
+        <th class="cabTabla cabResult" *ngFor="let titFunRes of listTitulosResCol">{{titFunRes}}</th>
+      </tr>
+      <tr *ngIf="listTitulosResCol.length === 1">
+        <th class="cabTabla cabDatos" *ngFor="let periodo of listPeriodos">{{periodo | date:textos.formatoFecha}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let registro of registrosMostrar; let i=index">
+        <ng-template [ngIf]="registro.tipo === 'registro'" [ngIfElse]="grupo">
+          <td class="datDetalle">{{registro.detalle}}</td>
+          <td class="datValores" *ngFor="let periodoValor of registro.listaPeriodosValores">{{  formatearNumero(periodoValor.valor, textos.formatoTblValPeriodo) }} </td>
+          <td class="datResult" *ngFor="let funcion of listFuncionesResCol">{{ formatearNumero(funcion(registro.listaPeriodosValores), textos.formatoTblResultado)   }}</td>
+        </ng-template>
+        <ng-template #grupo>
+          <td class="filaGrupo" [attr.colspan]="(1 + listPeriodos.length + listFuncionesResCol.length)">{{registro.detalle}}</td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
+</div>

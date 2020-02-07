@@ -1,0 +1,86 @@
+<div *ngIf="verComentarios">
+  <div *ngFor="let grupoParrafos of listArraysGruposParrafos">
+    <div *ngIf="grupoParrafos.listGruposParrafos.length>0">
+      <p class="parrafoDes"><strong>{{grupoParrafos.nombre}}</strong></p>
+      <div *ngFor="let grupoParrafo of grupoParrafos.listGruposParrafos">
+        <p class="parrafoDes">
+          <span>{{grupoParrafo.intro}}</span>
+          <ng-container *ngIf="grupoParrafo.registrosAscienden.length > 1">
+            <ng-container *ngTemplateOutlet="asciendePlural; context : {$implicit:grupoParrafo}" ></ng-container>
+            <span *ngIf="grupoParrafo.registrosDescienden.length>0;else finParrafo" >{{textos.contraste}}
+            </span>
+          </ng-container>
+          <ng-container  #registroAsciendeSingular *ngIf="grupoParrafo.registrosAscienden.length === 1">
+            <ng-container *ngTemplateOutlet="asciendeSingular; context : {$implicit:grupoParrafo}" ></ng-container>
+            <span *ngIf="grupoParrafo.registrosDescienden.length>0;else finParrafo" >{{textos.contraste}}
+            </span>
+          </ng-container>
+          <ng-container #registrosDesciendenPlural *ngIf="grupoParrafo.registrosDescienden.length > 1">
+            <ng-container *ngTemplateOutlet="desciendePlural; context : {$implicit:grupoParrafo}" ></ng-container>
+          </ng-container>
+          <ng-container  #registroDesciendeSingular *ngIf="grupoParrafo.registrosDescienden.length === 1;else finParrafo">
+            <ng-container *ngTemplateOutlet="desciendeSingular; context : {$implicit:grupoParrafo}" ></ng-container>
+            <ng-container *ngTemplateOutlet="finParrafo" ></ng-container>
+          </ng-container>
+        </p>
+      </div>
+    </div>
+    <div *ngIf="grupoParrafos.registrosGrafico.length>0">
+      <p>
+        {{grupoParrafos.introGrafico}}
+      </p>
+      <app-plantilla-line-chart [(listRegistrosGraficoEstadistico)]="grupoParrafos.registrosGrafico"></app-plantilla-line-chart>
+    </div>
+  </div>
+</div>
+<ng-template #finParrafo>.</ng-template>
+
+<ng-template #asciendeSingular let-grupoParrafo>
+    {{textos.artSingular}} {{textos.dato}} 
+    <span *ngFor="let registro of grupoParrafo.registrosAscienden">
+      <strong>{{registro.detalle}}</strong>
+    </span>
+    <span> {{grupoParrafo.conector.asciendeSingular}}</span>
+    <span *ngFor="let registro of grupoParrafo.registrosAscienden">
+      <strong> {{formatearNumero(registro.resultado,textos.formatoParrResultado)}}</strong>
+    </span>
+</ng-template>
+
+<ng-template #asciendePlural let-grupoParrafo >
+    {{textos.artPlural}} {{pluralizarPalabra(textos.dato)}} 
+    <span *ngFor="let registro of grupoParrafo.registrosAscienden; first as isFirst; last as isLast">
+      <strong *ngIf="isFirst" >{{registro.detalle}}</strong>
+      <span *ngIf="!isFirst && !isLast" >, <strong>{{registro.detalle}}</strong></span>
+      <span *ngIf="isLast" > {{textos.ultimoConector}} <strong>{{registro.detalle}}</strong></span>
+    </span>
+    <span> {{grupoParrafo.conector.asciendePlural}} </span>
+    <span *ngFor="let registro of grupoParrafo.registrosAscienden; first as isFirst; last as isLast">
+      <strong *ngIf="isFirst" >{{formatearNumero(registro.resultado,textos.formatoParrResultado) }}</strong>
+      <span *ngIf="!isFirst && !isLast" >, <strong>{{formatearNumero(registro.resultado,textos.formatoParrResultado) }}</strong></span>
+      <span *ngIf="isLast" > {{textos.ultimoConector}} <strong>{{formatearNumero(registro.resultado,textos.formatoParrResultado) }}</strong></span>
+    </span>{{textos.finDescripcionPlural}}</ng-template>
+
+<ng-template #desciendeSingular let-grupoParrafo>
+    {{textos.artSingular}} {{textos.dato}} 
+    <span *ngFor="let registro of grupoParrafo.registrosDescienden">
+      <strong>{{registro.detalle}}</strong>
+    </span>
+    <span> {{grupoParrafo.conector.desciendeSingular}}</span>
+    <span *ngFor="let registro of grupoParrafo.registrosDescienden">
+      <strong> {{formatearNumero(registro.resultado,textos.formatoParrResultado)}}</strong>
+    </span>
+</ng-template>
+
+<ng-template #desciendePlural let-grupoParrafo>
+    {{textos.artPlural}} {{pluralizarPalabra(textos.dato)}} 
+    <span *ngFor="let registro of grupoParrafo.registrosDescienden; first as isFirst; last as isLast">
+      <strong *ngIf="isFirst" >{{registro.detalle}}</strong>
+      <span *ngIf="!isFirst && !isLast" >, <strong>{{registro.detalle}}</strong></span>
+      <span *ngIf="isLast" > {{textos.ultimoConector}} <strong>{{registro.detalle}}</strong></span>
+    </span>
+    <span> {{grupoParrafo.conector.desciendePlural}} </span>
+    <span *ngFor="let registro of grupoParrafo.registrosDescienden; first as isFirst; last as isLast">
+      <strong *ngIf="isFirst" >{{formatearNumero(registro.resultado,textos.formatoParrResultado) }}</strong>
+      <span *ngIf="!isFirst && !isLast" >, <strong>{{formatearNumero(registro.resultado,textos.formatoParrResultado) }}</strong></span>
+      <span *ngIf="isLast" > {{textos.ultimoConector}} <strong>{{formatearNumero(registro.resultado,textos.formatoParrResultado) }}</strong></span>
+    </span>{{textos.finDescripcionPlural}}</ng-template>

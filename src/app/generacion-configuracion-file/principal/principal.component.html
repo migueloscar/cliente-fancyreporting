@@ -1,0 +1,30 @@
+<div class="container-fluid p-3">
+  <div class="row">
+    <div class="col-xl mx-auto">
+      <app-seleccion-datos></app-seleccion-datos>
+      <div *ngIf="registros.length !==0 && tipoReporte !== null">
+          <app-formulario-tabla-grupos></app-formulario-tabla-grupos>
+          <app-formulario-cadenas></app-formulario-cadenas>
+          <div class="card border-primary mb-3 mx-auto">
+            <div class="card-header">
+                Previsualización del reporte
+                <div class="d-inline float-right"> 
+                  <button mat-raised-button color="primary" (click)="refrescarPlantilla()">
+                    <mat-icon aria-hidden="false" aria-label="home">refresh</mat-icon>
+                  </button>
+                </div>
+            </div>
+            <div class="card-body">
+              <app-plantilla-titulo-general></app-plantilla-titulo-general>
+              <app-plantilla-tabla></app-plantilla-tabla>
+              <app-plantilla-parrafos></app-plantilla-parrafos>
+            </div>
+          </div>
+          <div class="card border-primary mb-3 mx-auto p-3">
+            <app-descargar-archivo-configuracion></app-descargar-archivo-configuracion>
+          </div>
+      </div>
+    </div>
+  </div>    
+</div>
+

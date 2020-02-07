@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Nuevo Grupo</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.nombre" placeholder="nombre grupo">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.nombre" cdkFocusInitial>Guardar</button>
+</div>

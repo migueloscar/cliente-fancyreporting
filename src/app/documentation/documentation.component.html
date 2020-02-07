@@ -1,0 +1,62 @@
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>Documentacion</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+          <li>
+            <a href="#">Implementacion</a>
+          </li>
+          <li>
+              <a href="#">Generar Informe Defecto</a>
+          </li>
+          <li>
+              <a href="#">Administrar Columnas de Resultados</a>
+          </li>
+          <li>
+              <a href="#columnas">Administrar Parrafos Descriptivo</a>
+          </li>
+      </ul>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+              <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSideBar()">
+                  <i class="fas fa-align-left"></i> 
+                  <span> Menu Secundario</span>
+              </button>
+          </div>
+      </nav>
+      <h5>Implementación de la librería FancyReporting</h5>
+      <p>
+        Descargar la librería de la pagina web <a href="http://FancyReporting.miguelaguirre.dev/"> FancyReporting.miguelaguirre.dev</a>.
+        <br>
+        Agregar la librería como referencia.
+        <img src="assets/images/agregarReferencia.png" alt="" class="img-fluid" alt="Responsive image">
+      </p>
+      <h5>Preparando la información que consume la librería para generar el reporte.</h5>
+      <img src="assets/images/metodoGenerarReporte.png" alt="" class="rounded" width="800">
+      <p>
+        <strong>modelo</strong>: Parámetro del tipo enum TipoReporte, que recibe el tipo de reporte que se desea implementar, usar el namespace ReportingGenerator.
+        <br>
+        <strong>listaDatosJson</strong>: Parámetro del tipo string, esta cadena contiene la información de los registros que se mostraran en el reporte en un formato Json; Este archivo Json es un array de objetos que tiene los siguientes miembros:
+      </p>
+        <ul>
+          <li>detalle del tipo string, es el nombre del registro.</li>
+          <li>periodo del tipo date, el periodo en el que se obtuvo este registro.</li>
+          <li>valor del tipo double, valor que obtuvo este registro en el periodo indicado anteriormente.</li>
+        </ul>
+        <p>
+          Ejemplo:
+        </p>
+        <img src="assets/images/listaDatosJson.png" alt="" class="rounded" hight="300" width="300">
+          <p>
+            Ejemplo del contenido de la variable listaDatosJson.
+          </p>
+  </div>
+</div>

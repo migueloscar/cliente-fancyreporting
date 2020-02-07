@@ -1,0 +1,210 @@
+<div class="margenes-contenedor">
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Formulario Selección de Datos
+      </mat-panel-title>
+      <mat-panel-description>
+        Cargue un archivo de Microsoft Excel de muestra y seleccione el tipo de reporte deseado.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="mb-3">
+      <div class="float-right">
+        <a  (click)="openDialog()" class="enlace-ayuda"><mat-icon aria-hidden="false" class="help-icon">help</mat-icon> Ayuda con el archivo de excel.</a>
+      </div>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" (change)="onFileChange($event)" id="inputGroupFile01">
+          <label class="custom-file-label" for="inputGroupFile01">Seleccione un archivo de MS Excel con los datos de muestra</label>
+        </div>
+      </div>
+    </div>
+
+    <div>
+        <mat-radio-group [(ngModel)]="tipoReporte" class="row" (change)="cambioTipoReporte()"  >
+            <div class="col-md">
+                <div class="card border-primary mb-3 mx-auto" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <div class="form-check">
+                            <mat-radio-button color="primary" value="IVPeriodos" [(disabled)]="disabledRadio">IV Periodos
+                            </mat-radio-button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table-model mx-auto mb-3" border="2px solid">
+                        <thead>
+                            <tr>
+                                <th rowspan="2" class="cabTabla detColMod">---</th>
+                                <th colspan="4" class="cabTabla datColMod">---</th>
+                                <th colspan="3" class="cabTabla resColMod">---</th>
+                            </tr>
+                            <tr>
+                                <th class="cabTabla datColMod">---</th>
+                                <th class="cabTabla datColMod">---</th>
+                                <th class="cabTabla datColMod">---</th>
+                                <th class="cabTabla datColMod">---</th>
+                                <th class="cabTabla resColMod">---</th>
+                                <th class="cabTabla resColMod">---</th>
+                                <th class="cabTabla resColMod">---</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td colspan="8" class="">
+                                ---
+                            </td>
+                            </tr>
+                            <tr>
+                            <td class="detColMod">---</td>
+                            <td class="datColMod">---</td>
+                            <td class="datColMod">---</td>
+                            <td class="datColMod">---</td>
+                            <td class="datColMod">---</td>
+                            <td class="resColMod">---</td>
+                            <td class="resColMod">---</td>
+                            <td class="resColMod">---</td>
+                            </tr>
+                            <tr>
+                                <td class="detColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="resColMod">---</td>
+                                <td class="resColMod">---</td>
+                                <td class="resColMod">---</td>
+                            </tr>
+                            <tr>
+                            <td colspan="8" class="">
+                                ---
+                            </td>
+                            </tr>
+                            <tr>
+                                <td class="detColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="resColMod">---</td>
+                                <td class="resColMod">---</td>
+                                <td class="resColMod">---</td>
+                            </tr>
+                            <tr>
+                                <td class="detColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="resColMod">---</td>
+                                <td class="resColMod">---</td>
+                                <td class="resColMod">---</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        <div>
+                            <ul>
+                                <li>Valida exactamente 4 columnas de datos</li>
+                                <li>3 columnas de resultados</li>
+                                <li>1 parrafo descriptivo por cada columna de resultado</li>
+                                <li>1 grafico estadistico por cada grupo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card border-primary mb-3 mx-auto" style="max-width: 25rem;">
+                    <div class="card-header">
+                        <div class="form-check">
+                            <mat-radio-button color="primary" value="UltimosPeriodos" [(disabled)]="disabledRadio">Últimos Periodos</mat-radio-button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table-model mx-auto mb-3" border="2px solid">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" class="cabTabla detColMod">---</th>
+                                    <th colspan="6" class="cabTabla datColMod">---</th>
+                                    <th colspan="1" class="cabTabla resColMod">---</th>
+                                </tr>
+                                <tr>
+                                    <th class="cabTabla datColMod">---</th>
+                                    <th class="cabTabla datColMod">---</th>
+                                    <th class="cabTabla datColMod">---</th>
+                                    <th class="cabTabla datColMod">---</th>
+                                    <th class="cabTabla datColMod">---</th>
+                                    <th class="cabTabla datColMod">---</th>
+                                    <th class="cabTabla resColMod">---</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td colspan="8" class="">
+                                    ---
+                                </td>
+                                </tr>
+                                <tr>
+                                <td class="detColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="datColMod">---</td>
+                                <td class="resColMod">---</td>
+                                </tr>
+                                <tr>
+                                    <td class="detColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="resColMod">---</td>
+                                </tr>
+                                <tr>
+                                <td colspan="8" class="">
+                                    ---
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td class="detColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="resColMod">---</td>
+                                </tr>
+                                <tr>
+                                    <td class="detColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="datColMod">---</td>
+                                    <td class="resColMod">---</td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            <div>
+                                <ul>
+                                    <li>N columnas de datos</li>
+                                    <li>1 columna de resultados</li>
+                                    <li>1 parrafo descriptivo por cada columna de resultado</li>
+                                    <li>1 grafico estadistico por cada grupo</li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </mat-radio-group>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+</div>

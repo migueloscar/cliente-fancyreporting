@@ -1,0 +1,22 @@
+.resColMod{
+    border:2px solid orange;
+}
+.datColMod{
+    border:2px solid green;
+}
+.detColMod{
+    border:2px solid blue;
+}
+
+.margenes-contenedor{
+    margin-bottom:16px;
+}
+
+.help-icon
+{
+  vertical-align: middle;
+}
+.enlace-ayuda{
+  color: darkblue;
+  text-decoration: underline;
+}

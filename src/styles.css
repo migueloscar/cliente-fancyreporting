@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~highlight.js/styles/vs2015.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  }
+
+
+#wrap {
+  min-height: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+.developer{
+  text-align: right;
+  padding: 5px;
+  color:white;
+  margin: 0px;
+}
+
+.footer{
+padding:10px 0;
+display: block;
+}

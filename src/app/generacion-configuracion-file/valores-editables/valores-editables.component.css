@@ -1,0 +1,6 @@
+span:hover{
+    color:darkblue;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor:pointer;
+}

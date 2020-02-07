@@ -1,0 +1,370 @@
+<div class="margenes-contenedor">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Variables Genéricas
+        </mat-panel-title>
+        <mat-panel-description>
+          Personalice variables que afectan a todo el reporte.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <mat-label>Formato Fecha</mat-label>
+            <mat-select [(ngModel)]="textos.formatoFecha" name="formatoFecha">
+                <mat-option *ngFor="let formatoFecha of formatosFecha" [value]="formatoFecha.value">
+                {{formatoFecha.viewValue}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Nombre del Dato" [(ngModel)]="textos.dato" name="dato" >
+            <mat-hint> <strong>Escribir en minúscula y en singular.</strong></mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Articulo singular del Nombre del Dato" [(ngModel)]="textos.artSingular" name="artSingular"  >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Articulo Plural del Nombre del Dato" [(ngModel)]="textos.artPlural" name="artPlural"  >
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Variables del Titulo General
+        </mat-panel-title>
+        <mat-panel-description>
+          Personalice los textos del titulo general.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="row">
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Inicio del Subtitulo General" [(ngModel)]="textos.subTituloGeneral" name="subTituloGeneral"  >
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Variables de la Tabla
+        </mat-panel-title>
+        <mat-panel-description>
+          Personalice los textos de la tabla.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="input-contenedor">
+        <mat-form-field class="input-mat">
+          <mat-label>Formato Números Valores de los Periodos </mat-label>
+          <mat-select [(ngModel)]="textos.formatoTblValPeriodo" name="formatoTblValPeriodo">
+              <mat-option *ngFor="let formatoNumero of formatosNumeros" [value]="formatoNumero.value">
+              {{formatoNumero.viewValue}}
+              </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Titulo de las columnas de resultados." [(ngModel)]="textos.tituloFunciones" name="tituloFunciones"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Titulo de la columna evolucion final" [(ngModel)]="textos.evolucionFinal" name="evolucionFinal"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <mat-label>Formato Números Columnas Resultados</mat-label>
+            <mat-select [(ngModel)]="textos.formatoTblResultado" name="formatoTblResultado">
+                <mat-option *ngFor="let formatoNumero of formatosNumeros" [value]="formatoNumero.value">
+                {{formatoNumero.viewValue}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+      </div>
+      <div class="">
+        <h6>Anchos de las columnas de la tabla.</h6>
+      </div>
+      <div class="row">
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Columna Detalles" [(ngModel)]="textos.anchoPrimera" name="anchoPrimera"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Columnas Periodos" [(ngModel)]="textos.anchoPeriodos" name="anchoPeriodos"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Columnas Resultados" [(ngModel)]="textos.anchoResultados" name="anchoResultados"  >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Fuente de donde se obtuvieron los datos" [(ngModel)]="textos.fuente" name="fuente"  >
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Variables Párrafos
+        </mat-panel-title>
+        <mat-panel-description>
+          Personalice los textos de los párrafos.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="">
+        <h6>Texto introductorio de los párrafos:</h6>
+      </div>
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Párrafo Inicio" [(ngModel)]="textos.iniParIni" name="iniParIni"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Párrafo Medio" [(ngModel)]="textos.iniParMed" name="iniParMed"  >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Párrafo Final" [(ngModel)]="textos.iniParConFinal" name="iniParConFinal"  >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="">
+        <h6>Conector entre los detalles y los resultados:</h6>
+      </div>
+      
+      <div class="row">
+
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Asciende Singular" [(ngModel)]="textos.asciendeSingular" name="asciendeSingular"  >
+          </mat-form-field>
+        </div>
+        
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Asciende Plural" [(ngModel)]="textos.asciendePlural" name="asciendePlural"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Desciende Singular" [(ngModel)]="textos.desciendeSingular" name="desciendeSingular"  >
+          </mat-form-field>
+        </div>
+  
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Desciende Plural" [(ngModel)]="textos.desciendePlural" name="desciendePlural"  >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="">
+        <h6 >Conector entre los detalles y los resultados del párrafo de conclusión:</h6>
+      </div>
+      <div class="row ">
+
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Asciende Singular" [(ngModel)]="textos.tenFinAsciendeSingular" name="tenFinAsciendeSingular"  >
+          </mat-form-field>
+        </div>
+  
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Asciende Plural" [(ngModel)]="textos.tenFinAsciendePlural" name="tenFinAsciendePlural"  >
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="row ">
+
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Desciende Singular" [(ngModel)]="textos.tenFinDesciendeSingular" name="tenFinDesciendeSingular"  >
+          </mat-form-field>
+        </div>
+  
+        <div class="col-md-6 fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Desciende Plural" [(ngModel)]="textos.tenFinDesciendePlural" name="tenFinDesciendePlural"  >
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="">
+        <h6 >Formato de Rangos entre las fechas:</h6>
+      </div>
+      <div class="row">
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Formato Entre Fechas 1" [(ngModel)]="textos.entreFechasFormato1" name="entreFechasFormato1">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Formato Entre Fechas 2" [(ngModel)]="textos.entreFechasFormato2" name="entreFechasFormato2">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Formato Entre Fechas 3" [(ngModel)]="textos.entreFechasFormato3" name="entreFechasFormato3"  >
+          </mat-form-field>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Conector entre el penúltimo y ultimo de los registros" [(ngModel)]="textos.ultimoConector" name="ultimoConector"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Contraste entre los ascendentes y descendentes" [(ngModel)]="textos.contraste" name="contraste"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Fin descripción de varios registros" [(ngModel)]="textos.finDescripcionPlural" name="finDescripcionPlural"  >
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8 fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Texto que concluye la comparación de los rendimientos" [(ngModel)]="textos.parrafoResultado" name="parrafoResultado">
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <mat-label>Formato de los números de los párrafos.</mat-label>
+            <mat-select [(ngModel)]="textos.formatoParrResultado" name="formatoParrResultado">
+                <mat-option *ngFor="let formatoNumero of formatosNumeros" [value]="formatoNumero.value">
+                {{formatoNumero.viewValue}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Variables Gráfico Estadístico
+        </mat-panel-title>
+        <mat-panel-description>
+          Personalice los textos del gráfico estadístico.
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="">
+        <h6>Texto introductorio del gráfico estadístico:</h6>
+      </div>
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Introducción Gráficos Estadísticos Singular" [(ngModel)]="textos.intGraEstSingular" name="intGraEstSingular"  >
+          </mat-form-field>
+        </div>      
+      </div> 
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Introducción Gráficos Estadísticos Plural" [(ngModel)]="textos.intGraEstPlural" name="intGraEstPlural"  >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+            <input matInput placeholder="Inicio Titulo Gráfico Estadístico" [(ngModel)]="textos.inicioTitGraEst" name="inicioTitGraEst"  >
+          </mat-form-field>
+        </div>
+
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Titulo Eje Y" [(ngModel)]="textos.graficoEjeY" name="graficoEjeY"  >
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md fuente">
+          <mat-form-field class="input-mat">
+              <input matInput placeholder="Formato de los Periodos (Eje X)" [(ngModel)]="textos.formtGraficoPer" name="formtGraficoPer"  >
+          </mat-form-field>
+        </div>
+        
+        <div class="col-md-4 fuente">
+          <mat-form-field class="input-mat">
+            <mat-label>Formato de los números del gráfico estadístico.</mat-label>
+            <mat-select [(ngModel)]="textos.formatoNumGrafico" name="formatoNumGrafico">
+                <mat-option *ngFor="let formatoNumero of formatosNumeros" [value]="formatoNumero.value">
+                {{formatoNumero.viewValue}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+      </div>
+    </mat-expansion-panel>
+
+  </mat-accordion>
+</div>
