@@ -7,8 +7,7 @@ import {FormatoObjetos, FormatoNumeros} from './../generacion-configuracion-mode
   styleUrls: ['./formulario-cadenas.component.css']
 })
 export class FormularioCadenasComponent implements OnInit {
-  textos:string[]=[];
-  
+  textos:any={};
   
   formatosFecha: FormatoObjetos[] = [
     {value: 'dd-MM-yyyy', viewValue: 'dd-MM-yyyy   (21-10-2019)'},

@@ -12,7 +12,7 @@ import { DecimalPipe, PercentPipe } from '@angular/common';
   styleUrls: ['./plantilla-parrafos.component.css']
 })
 export class PlantillaParrafosComponent implements OnInit {
-  textos:string[];
+  textos:any={};
   tipoReporte:string;
   grupos:Grupo[];
   registros:Registro[]=[];

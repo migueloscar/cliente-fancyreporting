@@ -11,7 +11,7 @@ import { UtilidadesStrings } from './../UtilidadesStrings';
 })
 export class PlantillaTituloGeneralComponent implements OnInit {
   listPeriodos: Date[]=[];
-  textos={};
+  textos:any={};
   refrescar:boolean;
   constructor(private service:GeneracionConfiguracionFileService,@Inject(LOCALE_ID) private locale: string) { 
     this.service.castCadenas.subscribe(resultado=>this.textos=resultado);
